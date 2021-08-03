@@ -1,0 +1,7 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  event_on: 2021-08-03
+
+two:
+  event_on: 2021-08-03
