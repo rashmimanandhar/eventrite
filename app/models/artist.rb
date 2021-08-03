@@ -1,6 +1,5 @@
 class Artist < ApplicationRecord
-  belongs_to :genre
-
+  validates :name, presence: true
   has_many :venues, through: :shows
   has_many :shows
 end
