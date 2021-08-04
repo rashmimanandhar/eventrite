@@ -1,0 +1,17 @@
+<%= form_with model: @show do |form|%>
+  <div>
+    <%= form.label :artist_id, "Artist" %>
+    <%= form.select :artist_id, options_for_select(@artists.map{|a|[a.name, a.id]}, selected= @show.artist_id)%>
+  </div>
+  <div>
+    <%= form.label :venue_id, "Venue" %>
+    <%= form.select :venue_id, options_for_select(@venues.map{|a|[a.name, a.id]}, selected= @show.venue_id)%>
+  </div>
+  <div>
+    <%= form.label :event_on, "Event Start Date" %>
+    <%= form.date_field :event_on %>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<%end%>

@@ -1,0 +1,9 @@
+<h2>All Shows</h2>
+<ul>
+  <% @shows.each do |show| %>
+    <li>
+      <%= show.event_on%>
+    </li>
+  <% end %>
+</ul>
+<%= link_to  "Add a new show", new_show_path %>

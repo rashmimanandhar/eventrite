@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_03_185424) do
+ActiveRecord::Schema.define(version: 2021_08_04_165200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,9 +32,9 @@ ActiveRecord::Schema.define(version: 2021_08_03_185424) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "artist_id", null: false
-    t.bigint "show_id", null: false
+    t.bigint "venue_id", null: false
     t.index ["artist_id"], name: "index_shows_on_artist_id"
-    t.index ["show_id"], name: "index_shows_on_show_id"
+    t.index ["venue_id"], name: "index_shows_on_venue_id"
   end
 
   create_table "venues", force: :cascade do |t|
@@ -46,6 +46,6 @@ ActiveRecord::Schema.define(version: 2021_08_03_185424) do
   end
 
   add_foreign_key "shows", "artists"
-  add_foreign_key "shows", "shows"
+  add_foreign_key "shows", "venues"
   add_foreign_key "venues", "cities"
 end

@@ -13,12 +13,9 @@ class VenuesController < ApplicationController
   end
 
   def create
-    city_obj = City.find(venue_params['city'])
-    @venue = Venue.new(name: venue_params['name'])
-    @venue.city = city_obj
+    @venue = Venue.new(venue_params)
 
     if @venue.save
-
       redirect_to @venue
     else
       @cities = City.all
@@ -28,15 +25,12 @@ class VenuesController < ApplicationController
 
   def edit
     @venue = Venue.find(params[:id])
-
     @cities = City.all
   end
 
   def update
     @venue = Venue.find(params[:id])
-    city_obj = City.find(venue_params['city'])
-
-    if @venue.update(name: venue_params['name'], city: city_obj)
+    if @venue.update(venue_params)
       redirect_to @venue
     else
       render 'edit'
@@ -46,6 +40,6 @@ class VenuesController < ApplicationController
   private
 
   def venue_params
-    params.require(:venue).permit(:name, :city)
+    params.require(:venue).permit(:name, :city_id)
   end
 end
