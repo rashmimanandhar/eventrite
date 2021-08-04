@@ -1,0 +1,13 @@
+<h1>Venues</h1>
+<ul>
+  <% if !@venues.blank? %>
+    <% @venues.each do |venue| %>
+      <li>
+        <%= link_to  venue.name, venue %>
+      </li>
+    <% end %>
+  <% else%>
+    <span>No venues available</span>
+  <%end%>
+</ul>
+<%= link_to  "Add new Venue", new_venue_path %>
