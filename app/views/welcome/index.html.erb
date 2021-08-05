@@ -1,2 +1,19 @@
-<h2>Hello World</h2>
+<h2>Welcome to Eventrite</h2>
 <p>Time is: <%= Time.now%></p>
+<span>Before proceeding to add new artists, venues or shows. please add a new city</span>
+<div>
+  <ul>
+    <li>
+      <%= link_to  "Add new City", new_city_path %>
+    </li>
+    <li>
+      <%= link_to  "Add new Artist", new_artist_path %>
+    </li>
+    <li>
+      <%= link_to  "Add new Venue", new_venue_path %>
+    </li>
+    <li>
+      <%= link_to  "Add new Show", new_show_path %>
+    </li>
+  </ul>
+</div>

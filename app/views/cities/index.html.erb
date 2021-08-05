@@ -1,0 +1,13 @@
+<h2>Cities</h2>
+<ul>
+  <% if !@cities.blank? %>
+    <% @cities.each do |artist| %>
+      <li>
+        <%= link_to  city.name,  artist%>
+      </li>
+    <% end %>
+  <% else %>
+    <span>No cities found</span>
+  <% end %>
+</ul>
+<%= link_to  "Add new City", new_city_path %>

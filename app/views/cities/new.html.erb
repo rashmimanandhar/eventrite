@@ -1,0 +1,13 @@
+<h2>Add a city</h2>
+<%= form_with model: @city do |form|%>
+  <div>
+    <%= form.label :name, "Name" %>
+    <%= form.text_field :name %>
+    <% @city.errors.full_messages_for(:name).each do |message|%>
+      <div><%= message%></div>
+    <%end%>
+  </div>
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

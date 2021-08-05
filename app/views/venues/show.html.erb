@@ -1,6 +1,17 @@
 <h1><%= @venue.name%></h1>
+<%= link_to  "Edit", edit_venue_path(@venue) %>
+<% @venue.shows.each do |show| %>
+  <% if show.event_on < Date.today %>
+    <h2>Past shows</h2>
+    <%= show.event_on %>
+  <% else %>
+    <h2>Upcoming shows</h2>
+    <span>Event is on <%= show.event_on %> Performing artist: <%= link_to show.artist.name, show.venue%> in 
+      <%= @venue.city.name %></span>
+  <%end%>
+<% end %>
 <ul>
   <li>
-    <%= link_to  "Edit", edit_venue_path(@venue) %>
+    <%= link_to  "Add new Show", new_show_path %>
   </li>
 </ul>
